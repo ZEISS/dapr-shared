@@ -56,6 +56,7 @@ Customize Dapr Shared using custom Helm values
 | shared.daprd.publicPort | int | `3501` | The HTTP public port for the Dapr API. |
 | shared.daprd.token | string | `""` | Dapr API token to use for token based API authentication. |
 | shared.deployment.replicas | int | `1` | The quantity of replicas. This property is set only when `shared.strategy` is equal to `deployment` |
+| shared.scheduling.nodeSelector | key-value map | `{}` | Controls where Dapr shared deployment or daemonset is placed. |
 | shared.initContainer.image.name | string | `"dapr-shared"` | The dapr-shared image name. |
 | shared.initContainer.image.pullPolicy | string | `"Always"` | The init container pull policy. |
 | shared.initContainer.image.registry | string | `"docker.io/matheuscruzdev"` | The dapr-shared image registry. |
