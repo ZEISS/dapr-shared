@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
 
@@ -128,7 +127,10 @@ func InitHandler() {
 
 	_, err := kubeClient.CoreV1().ConfigMaps(namespaceDefault).Get(ctx, configMapName, metav1.GetOptions{})
 	if err == nil {
-		panic(fmt.Errorf("configmap %s already exists", configMapName))
+		err := kubeClient.CoreV1().ConfigMaps(namespaceDefault).Delete(ctx, configMapName, metav1.DeleteOptions{})
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	_, err = kubeClient.CoreV1().ConfigMaps(namespaceDefault).Create(ctx, configMap, metav1.CreateOptions{})
