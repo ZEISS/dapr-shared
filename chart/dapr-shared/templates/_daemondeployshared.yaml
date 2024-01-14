@@ -46,6 +46,7 @@
           - --log-as-json={{ .Values.shared.log.json }}
           - --dapr-http-port={{ .Values.shared.daprd.httpPort }}
           - --dapr-grpc-port={{ .Values.shared.daprd.grpcPort }}
+          - --config={{ .Values.shared.daprd.config }}
           - --dapr-internal-grpc-port={{ .Values.shared.daprd.internalGrpcPort }}
           - --dapr-listen-addresses={{ .Values.shared.daprd.listenAddresses }}
           - --dapr-public-port={{ .Values.shared.daprd.publicPort }}
